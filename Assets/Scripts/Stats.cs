@@ -11,6 +11,7 @@ public class Stats: MonoBehaviour
     private TMP_Text healthText;
     private TMP_Text sanityText;
     private TMP_Text moraleText;
+    public bool isNpc;
 
     public Stats()
     {
@@ -18,6 +19,10 @@ public class Stats: MonoBehaviour
         sanityText = GameObject.Find("SanityText").GetComponent<TMP_Text>();
         moraleText = GameObject.Find("MoraleText").GetComponent<TMP_Text>();
         player = FindObjectOfType<PlayerMovementController>();
+        if(isNpc)
+        {
+            // player = FindObjectOfType<NpcManager>();
+        }
     }
 
     public void TakeDamage(int dmg)

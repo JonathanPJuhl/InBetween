@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerMovementController : MonoBehaviour
+public class PlayerMovementController: Player
 {
     [SerializeField] private DialogueUI dialogueUI;
     [SerializeField] private UIInventory uiInventory;
