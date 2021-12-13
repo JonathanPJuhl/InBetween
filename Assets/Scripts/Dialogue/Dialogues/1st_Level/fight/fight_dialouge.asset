@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f76848c968a9b2489676e3b5d304e04, type: 3}
+  m_Name: fight_dialouge
+  m_EditorClassIdentifier: 
+  dialogue:
+  - So you like stepping on my plants, huh?
+  - How would you feel if i stepped on YOU!?
+  - Now will you stop stepping on them, or should i really step on you?!
+  responses:
+  - responseText: I will stop, sorry for the inconvenience
+    dialogueObj: {fileID: 11400000, guid: 801ba2a1ad932f34faf3db9fc46172fe, type: 2}
+  - responseText: I won't stop,to hell with your stupid plants!
+    dialogueObj: {fileID: 11400000, guid: ff6668990bd91bd46a1b7260a941f3ba, type: 2}
