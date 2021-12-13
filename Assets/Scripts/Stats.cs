@@ -6,23 +6,35 @@ using UnityEngine;
 
 public class Stats: MonoBehaviour
 {
-    private PlayerMovementController player;
+    private Player player;
 
     private TMP_Text healthText;
     private TMP_Text sanityText;
     private TMP_Text moraleText;
-    public bool isNpc;
+    private TMP_Text fightHealthText;
+    private TMP_Text fightSanityText;
+    private TMP_Text fightMoraleText;
+    private TMP_Text characterName;
 
-    public Stats()
+    private bool isNpc;
+    public Stats(bool npc)
     {
         healthText = GameObject.Find("HealthText").GetComponent<TMP_Text>();
         sanityText = GameObject.Find("SanityText").GetComponent<TMP_Text>();
         moraleText = GameObject.Find("MoraleText").GetComponent<TMP_Text>();
         player = FindObjectOfType<PlayerMovementController>();
+        isNpc = npc;
         if(isNpc)
         {
-            // player = FindObjectOfType<NpcManager>();
+            player = FindObjectOfType<NpcManager>();
         }
+
+        fightHealthText = player.fightHealthText;
+        fightSanityText = player.fightSanityText;
+        fightMoraleText = player.fightMoraleText;
+        characterName = player.characterName;
+        characterName.text = player.charName;
+        UpdateAllStats();
     }
 
     public void TakeDamage(int dmg)
@@ -78,14 +90,29 @@ public class Stats: MonoBehaviour
 
     public void updateHealthText()
     {
-        healthText.text = "HEALTH: " + player.health.ToString();
+        if (!isNpc) { 
+            healthText.text = "HEALTH: " + player.health.ToString();
+            if (player.health <= 60 && player.health > 40)
+            {
+              healthText.color = Color.yellow;
+            }
+            if (player.health <= 40)
+            {
+               healthText.color = Color.red;
+            }
+            if (player.health <= 0)
+            {
+                Debug.Log("You died");
+            }
+        }
+        fightHealthText.text = "Hp: " + player.health.ToString();
         if (player.health <= 60 && player.health > 40)
         {
-            healthText.color = Color.yellow;
+            fightHealthText.color = Color.yellow;
         }
         if (player.health <= 40)
         {
-            healthText.color = Color.red;
+            fightHealthText.color = Color.red;
         }
         if (player.health <= 0)
         {
@@ -94,42 +121,74 @@ public class Stats: MonoBehaviour
     }
     public void updateSanityText()
     {
-        sanityText.text = "SANITY: " + player.sanity.ToString();
+        if (!isNpc)
+        {
+            sanityText.text = "SANITY: " + player.sanity.ToString();
+            if (player.sanity <= 60 && player.sanity > 40)
+            {
+                sanityText.color = Color.yellow;
+            }
+            if (player.sanity <= 40)
+            {
+                sanityText.color = Color.red;
+            }
+            if (player.sanity <= 0)
+            {
+                sanityText.color = Color.black;
+            }
+        }
+        fightSanityText.text = "Sanity: " + player.sanity.ToString();
         if (player.sanity <= 60 && player.sanity > 40)
         {
-            sanityText.color = Color.yellow;
+            fightSanityText.color = Color.yellow;
         }
         if (player.sanity <= 40)
         {
-            sanityText.color = Color.red;
+            fightSanityText.color = Color.red;
         }
         if (player.sanity <= 0)
         {
-            sanityText.color = Color.black;
+            fightSanityText.color = Color.black;
         }
     }
     public void updateMoraleText()
     {
-        moraleText.text = "MORALE: " + player.morale.ToString();
+        if (!isNpc)
+        {
+            moraleText.text = "MORALE: " + player.morale.ToString();
+            if (player.morale <= 60 && player.morale > 40)
+            {
+                moraleText.color = Color.yellow;
+            }
+            if (player.morale <= 40)
+            {
+                moraleText.color = Color.red;
+            }
+            if (player.morale <= 0)
+            {
+                moraleText.color = Color.black;
+            }
+        }
+        fightMoraleText.text = "Morale: " + player.morale.ToString();
         if (player.morale <= 60 && player.morale > 40)
         {
-            moraleText.color = Color.yellow;
+            fightMoraleText.color = Color.yellow;
         }
         if (player.morale <= 40)
         {
-            moraleText.color = Color.red;
+            fightMoraleText.color = Color.red;
         }
         if (player.morale <= 0)
         {
-            moraleText.color = Color.black;
+            fightMoraleText.color = Color.black;
         }
     }
 
     public void UpdateAllStats()
     {
-        updateHealthText();
-        updateMoraleText();
-        updateSanityText();
+         updateHealthText();
+         updateMoraleText();
+         updateSanityText();
     }
 
 }

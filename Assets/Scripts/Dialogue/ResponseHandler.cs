@@ -66,13 +66,16 @@ public class ResponseHandler : MonoBehaviour
     private void MoveNPC()
     {
         GameObject npc = GameObject.Find("npc-dark_red-shirt_0");
-        NpcManager npcManager = (new GameObject("npcMan")).AddComponent<NpcManager>();
+        NpcManager npcManager = npc.GetComponent<NpcManager>();
         npcManager.MoveNpc(npc);
     }
 
     private void Fight()
     {
         GameObject npc = GameObject.Find("npc-dark_red-shirt_0");
-
+        NpcManager npcManager = npc.GetComponent<NpcManager>();
+        Debug.Log("1: " +npc);
+        Debug.Log("2: " + npcManager);
+        npcManager.FightNpc(npc);
     }
 }

@@ -15,13 +15,10 @@ public class PlayerMovementController: Player
 
     public float moveSpeed = 10f;
 
-    public int health = 100;
-    public int sanity = 100;
-    public int morale = 100;
-
     [SerializeField] GameObject gameOver;
     [SerializeField] GameObject restartButton;
     [SerializeField] GameObject blackOut;
+    [SerializeField] GameObject battleCanvas;
 
     bool hide = false;
     bool isAlive = true;
@@ -40,17 +37,26 @@ public class PlayerMovementController: Player
 
     Vector2 movement;
 
+    public DialogueObj startDialogue;
+
+
     private void Start()
     {
         gameOver.SetActive(hide);
         restartButton.SetActive(hide);
+        battleCanvas.SetActive(false);
         uiInv = GameObject.Find("UIInventory");
         uiInv.SetActive(uiInventoryActive);
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
-        stats = new Stats();
+        stats = new Stats(false);
         stats.UpdateAllStats();
-}
+       /* TMP_Text tempText = dialogueUI.text;
+        GameObject tempDialogueBox = dialogueUI.dialogueBox;
+        dialogueUI.text = GameObject.Find("BeginingText").GetComponent<TMP_Text>();
+        dialogueUI.dialogueBox = GameObject.Find("Beginning");
+        dialogueUI.ShowDialogue(startDialogue); */
+    }
 
     void Update()
     {
@@ -99,6 +105,7 @@ public class PlayerMovementController: Player
         }
     }
 
+    override
     public void Die()
     {
         UIController ui = (new GameObject("uiCont")).AddComponent<UIController>();
