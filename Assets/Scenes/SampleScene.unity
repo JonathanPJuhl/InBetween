@@ -2600,8 +2600,8 @@ MonoBehaviour:
   fightSanityText: {fileID: 1392057268}
   fightMoraleText: {fileID: 2114369889}
   characterName: {fileID: 948194739}
-  charName: Oldie(angry)
-  fightSprite: {fileID: 8881600285066489159, guid: e50cfed9767d7514cb70e51df92bbdab, type: 3}
+  charName: Old man(angry)
+  fightSprite: {fileID: 634706600148949845, guid: e50cfed9767d7514cb70e51df92bbdab, type: 3}
   health: 100
   sanity: 100
   morale: 100
