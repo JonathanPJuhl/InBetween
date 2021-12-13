@@ -4,8 +4,8 @@ using System.Collections;
 
 public class DialogueUI : MonoBehaviour
 {
-    [SerializeField] private TMP_Text text;
-    [SerializeField] private GameObject dialogueBox;
+    [SerializeField] public TMP_Text text;
+    [SerializeField] public GameObject dialogueBox;
     public GameObject mcCam;
     public GameObject npcCam;
 

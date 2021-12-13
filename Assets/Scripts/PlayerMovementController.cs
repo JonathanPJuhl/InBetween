@@ -37,6 +37,9 @@ public class PlayerMovementController: Player
 
     Vector2 movement;
 
+    public DialogueObj startDialogue;
+
+
     private void Start()
     {
         gameOver.SetActive(hide);
@@ -48,6 +51,11 @@ public class PlayerMovementController: Player
         uiInventory.SetInventory(inventory);
         stats = new Stats(false);
         stats.UpdateAllStats();
+       /* TMP_Text tempText = dialogueUI.text;
+        GameObject tempDialogueBox = dialogueUI.dialogueBox;
+        dialogueUI.text = GameObject.Find("BeginingText").GetComponent<TMP_Text>();
+        dialogueUI.dialogueBox = GameObject.Find("Beginning");
+        dialogueUI.ShowDialogue(startDialogue); */
     }
 
     void Update()

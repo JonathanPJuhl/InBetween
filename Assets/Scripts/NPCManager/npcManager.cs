@@ -18,7 +18,7 @@ public class NpcManager : Player
         rb = npc.GetComponent<Rigidbody2D>();
         Vector2 movement;
         movement.x = 0;
-        movement.y = 10;
+        movement.y = 15;
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", 5);
