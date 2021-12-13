@@ -21,6 +21,6 @@ MonoBehaviour:
     functionText: MoveNPC
     dialogueObj: {fileID: 11400000, guid: 801ba2a1ad932f34faf3db9fc46172fe, type: 2}
   - responseText: I won't stop,to hell with your stupid plants!
-    functionText: 
+    functionText: Fight
     dialogueObj: {fileID: 11400000, guid: ff6668990bd91bd46a1b7260a941f3ba, type: 2}
   fightObj: {fileID: 0}

@@ -26,7 +26,7 @@ public class Item
 
     public void GetEffectValue(Item item)
     {
-        Stats stats = new Stats();
+        Stats stats = new Stats(false);
         if(item.itemType == ItemType.HealthPotion)
         {
             stats.healDamage(25);

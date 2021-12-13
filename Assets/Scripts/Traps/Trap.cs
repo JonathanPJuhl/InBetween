@@ -19,7 +19,7 @@ public class Trap : MonoBehaviour
         screenOverlayIsActive = false;
         screenOverlay.SetActive(screenOverlayIsActive);
         isRunning = false;
-        stats = new Stats();
+        stats = new Stats(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
