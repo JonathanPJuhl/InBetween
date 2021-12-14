@@ -7,6 +7,10 @@ public class Typewriter : MonoBehaviour
 {
     [SerializeField] private float typingSpeed = 50f;
 
+    public void SetTypingSpeed(float speed)
+    {
+        typingSpeed = speed;
+    }
     public bool IsRunning { get; private set; }
 
     private readonly List<Punct> punctuations = new List<Punct>()
